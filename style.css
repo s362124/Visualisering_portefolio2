@@ -1,0 +1,673 @@
+@font-face {
+  font-family: 'PT Sans';
+  src: url(fonts/PTSans-Bold.ttf);
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url(fonts/OpenSans_SemiCondensed-Medium.ttf);
+}
+
+@import url('https://unpkg.com/css.gg@2.0.0/icons/css/search.css');
+
+html {
+  width: 100%;
+}
+
+:root {
+  --blueD: #0C134F;
+  --blueL: #1D267D;
+  --purpleD: #840084;
+  --purpleL: #D4ADFC;
+  --calendar-bg-color: #262829;
+  --calendar-font-color: #FFF;
+  --weekdays-border-bottom-color: #404040;
+  --calendar-date-hover-color: #505050;
+  --calendar-current-date-color: #1b1f21;
+  --calendar-today-color: #840084;
+  --calendar-today-innerborder-color: transparent;
+  --calendar-nextprev-bg-color: transparent;
+  --next-prev-arrow-color : #FFF;
+  --calendar-border-radius: 16px;
+  --calendar-prevnext-date-color: #484848
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans';
+}
+
+/* Start Navbar Styles*/
+
+nav {
+  width: 100%;
+  height: 80px;
+  background-color: transparent;
+  border-bottom: 1px solid #CCC;
+}
+
+nav .container{
+  width: 80%;
+  height: 100%;
+  display: flex;
+  /* background-color: var(--purpleD);  */
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .container span,
+nav .container .search,
+nav .container .account {
+  margin: 0 10px;
+}
+
+nav .container span {
+  height: 56px;
+  font-size: 2.5em;
+  font-family: 'PT Sans';
+  color: var(--purpleD);
+}
+
+nav .container .search {
+  width: 65%;
+  height: 48%;
+  position: relative;
+  display: flex;
+  border: 2px solid var(--blueD);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: .5s;
+}
+
+nav .container .search input{
+  width: 94%;
+  height: 100%;
+  border: 0px;
+  padding: 0 15px;
+  outline: 0;
+}
+
+nav .container .search a {
+  display: flex;
+  width: 60px;
+  background-color: var(--purpleD);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--purpleD);
+}
+
+nav .container .search a i {
+  color: white;
+}
+
+/* sdsadsadas */
+.container2 {
+  height: 55px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.container2 .search {
+  width: 90%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  border: 2px solid var(--blueD);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: .5s;
+}
+
+.container2 .search input{
+  width: 94%;
+  height: 100%;
+  border: 0px;
+  padding: 0 15px;
+  outline: 0;
+}
+
+.container2 .search a {
+  display: flex;
+  width: 50px;
+  background-color: var(--purpleD);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--purpleD);
+}
+
+.container2 .search a i {
+  color: white;
+}
+
+nav .container .addPost {
+  height: 50%;
+  width: 39.5px;
+  border: 2px solid var(--blueD);
+  border-radius: 5px;
+}
+
+nav .container .addPost a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .container .addPost a i{
+  display: inline-block;
+  color: var(--blueD);
+  font-size: 16px;
+}
+nav .container .account {
+  width: 40px;
+  height: 40px;
+  background-image: url(images/user2.png);
+  background-size: cover;
+  border: 2px solid var(--purpleD);
+  border-radius: 50%;
+}
+
+nav .container .language select{
+  border: 0;
+  outline: 0;
+  display: inline-block;
+  font-size: 20px;
+  color: var(--blueD);
+}
+
+/* END Navbar Styles*/
+
+/* Start States Styles */
+
+.state {
+  width: 100%;
+  height: 35px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.state .statesContainer {
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.state .statesContainer a {
+  width: 100%;
+  height: 100%;
+  font-size: 1.1em;
+  padding: 5px 5px 0 5px;
+  text-decoration: none;
+  color: var(--blueD);
+  border-bottom: 5px solid transparent;
+  transition: .4s;
+}
+
+.state .statesContainer a:hover {
+  border-bottom: 5px solid var(--purpleD);
+}
+
+.state .statesContainer .active {
+  border-bottom: 5px solid var(--purpleD);
+}
+
+.state2 {
+  display: none;
+}
+/* END States Styles */
+
+.parent {
+  width: 90%;
+  margin: 50px auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Start Aside Styles */
+
+.parent aside {
+  width: 20%;
+  height: fit-content;
+}
+
+.parent aside .boxContainer {
+  border: 2px solid var(--purpleD);
+  border-radius: 5px;
+}
+
+.parent aside .boxContainer .contentBox {
+  position: relative;
+  border-bottom: 2px solid var(--purpleD);
+  max-height: 43px;
+  transition: .5s;
+}
+
+.parent aside .boxContainer .contentBox:last-child {
+  border-bottom: 0px;
+}
+
+.parent aside .boxContainer .contentBox .location {
+  position: relative;
+  font-size: 20px;
+  /* font-weight: bold; */
+  padding: 10px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.parent aside .boxContainer .contentBox .location::before {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-weight: bolder;
+  font-size: 1.5em;
+  color: var(--purpleD);
+}
+
+.parent aside .boxContainer .contentBox .locations {
+  position: relative;
+  max-height: 0;
+  height: auto;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 10px 10px 20px;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.parent aside .boxContainer .contentBox.active {
+  max-height: 1500px;
+}
+
+.parent aside .boxContainer .contentBox.active .locations {
+  max-height: 1500px;
+  opacity: 1;
+  padding: 0 10px 10px 20px;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.parent aside .boxContainer .contentBox.active .locations.flexLocations {
+  display: flex;
+  justify-content: space-between;
+}
+
+.parent aside .boxContainer .contentBox.active .location::before {
+  content: '-';
+  top: 40%;
+}
+
+.parent aside .boxContainer .contentBox .locations ul {
+  list-style: none;
+}
+
+.parent aside .boxContainer .contentBox .locations ul li {
+  margin: 5px;
+}
+
+.parent aside .boxContainer .contentBox .locations ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+
+.parent aside .boxContainer .contentBox .locations ul li:hover a {
+  color: var(--purpleD);
+}
+
+.parent aside .foot {
+  width: 100%;
+  height: fit-content;
+  margin-top: 20px;
+  border: 2px solid var(--purpleD);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.parent aside .foot a {
+  display: block;
+  margin: 5px 0;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  transition: .2s;
+}
+
+.parent aside .foot a:hover {
+  color: var(--purpleD);
+}
+
+.parent aside .nopadding {
+  margin-top: 20px;
+  padding: 0;
+  border: 0;
+}
+
+.calendar {
+  font-family: 'IBM Plex Sans', sans-serif;
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  background: var(--calendar-bg-color);
+  color: var(--calendar-font-color);
+  margin: 20px auto;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-weight: normal;
+  border-radius: var(--calendar-border-radius);
+}
+
+.calendar-inner {
+  padding: 10px 10px;
+}
+
+.calendar .calendar-inner .calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.calendar .calendar-inner .calendar-body div {
+  padding: 4px;
+  min-height: 15px;
+  line-height: 15px;
+  border: 1px solid transparent;
+  margin: 10px 2px 0px;
+}
+
+.calendar .calendar-inner .calendar-body div:nth-child(-n+7) {
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--weekdays-border-bottom-color);
+}
+
+.calendar .calendar-inner .calendar-body div:nth-child(-n+7):hover {
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--weekdays-border-bottom-color);
+}
+
+.calendar .calendar-inner .calendar-body div>a {
+  color: var(--calendar-font-color);
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
+.calendar .calendar-inner .calendar-body div:hover {
+  border: 1px solid var(--calendar-date-hover-color);
+  border-radius: 4px;
+}
+
+.calendar .calendar-inner .calendar-body div.empty-dates:hover {
+  border: 1px solid transparent;
+}
+
+.calendar .calendar-inner .calendar-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.calendar .calendar-inner .calendar-today-date {
+  display: grid;
+  text-align: center;
+  cursor: pointer;
+  margin: 3px 0px;
+  background: var(--calendar-current-date-color);
+  padding: 8px 0px;
+  border-radius: 10px;
+  width: 80%;
+  margin: auto;
+}
+
+.calendar .calendar-inner .calendar-controls .calendar-year-month {
+  display: flex;
+  min-width: 100px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.calendar .calendar-inner .calendar-controls .calendar-next {
+  text-align: right;
+}
+
+.calendar .calendar-inner .calendar-controls .calendar-year-month .calendar-year-label,
+.calendar .calendar-inner .calendar-controls .calendar-year-month .calendar-month-label {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.calendar .calendar-inner .calendar-body .calendar-today {
+  background: var(--calendar-today-color);
+  border-radius: 4px;
+}
+
+.calendar .calendar-inner .calendar-body .calendar-today:hover {
+  border: 1px solid transparent;
+}
+
+.calendar .calendar-inner .calendar-body .calendar-today a {
+  outline: 2px solid var(--calendar-today-innerborder-color);
+}
+
+.calendar .calendar-inner .calendar-controls .calendar-next a,
+.calendar .calendar-inner .calendar-controls .calendar-prev a {
+  color: var(--calendar-font-color);
+  font-family: arial, consolas, sans-serif;
+  font-size: 26px;
+  text-decoration: none;
+  padding: 4px 12px;
+  display: inline-block;
+  background: var(--calendar-nextprev-bg-color);
+  margin: 10px 0 10px 0;
+}
+
+.calendar .calendar-inner .calendar-controls .calendar-next a svg,
+.calendar .calendar-inner .calendar-controls .calendar-prev a svg {
+  height: 20px;
+  width: 20px;
+}
+
+.calendar .calendar-inner .calendar-controls .calendar-next a svg path,
+.calendar .calendar-inner .calendar-controls .calendar-prev a svg path{
+  fill: var(--next-prev-arrow-color);
+}
+
+.calendar .calendar-inner .calendar-body .prev-dates,
+.calendar .calendar-inner .calendar-body .next-dates {
+  color: var(--calendar-prevnext-date-color);
+}
+
+.calendar .calendar-inner .calendar-body .prev-dates:hover,
+.calendar .calendar-inner .calendar-body .next-dates:hover {
+border: 1px solid transparent;
+pointer-events: none;
+}
+/* END Aside Styles*/
+
+/* Start Categories Section Styles */
+.parent .categories {
+  width: 75%;
+  height: fit-content;
+  margin: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.parent .categories .cat {
+  width: calc(100%/3);
+  padding: 0 20px;
+}
+
+.parent .categories .cat h1 {
+  color: #555555;
+  padding: 10px 0;
+}
+
+.parent .categories .cat .catList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.parent .categories .cat .catList ul {
+  list-style: none;
+}
+
+.parent .categories .cat .catList ul li {
+  margin: 5px 0;
+}
+
+.parent .categories .cat .catList ul li a {
+  color: black;
+  font-size: 1.15em;
+  text-decoration: underline;
+  transition: .2s;
+}
+
+.parent .categories .cat .catList ul li:hover a {
+  text-decoration: none;
+  color: var(--purpleD);
+}
+
+.parent .categories .cat .catList ul li:hover a:visited {
+  color: var(--purpleD);
+}
+
+/* END Categories Section Styles */
+
+/* Start Footer Section Styles */
+
+footer {
+  width: 100%;
+  height: 35px;
+  margin-top: 50px;
+  background-color: var(--purpleD);
+}
+
+footer .footer {
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .footer ul {
+  display: flex;
+  list-style: none;
+}
+
+footer .footer ul li {
+  margin: 0 15px;
+}
+
+footer .footer ul li a {
+  text-decoration: underline;
+  color: white;
+}
+
+
+footer .footer span {
+  color: white;
+}
+
+footer .footer ul li:hover a {
+  text-decoration: none;
+}
+
+footer .footer .responsiveFooter {
+  display: none;
+}
+/* End Footer Section Styles */
+
+/* Responsivn design start */
+
+@media only screen and (max-width: 1205px) {
+  .parent .categories .cat {
+    width: 50%;
+    padding-right: 20px;
+  }
+  .state {
+    height: fit-content;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .parent .categories .cat {
+    width: 100%;
+    padding-right: 20px;
+  }
+  .parent .categories .cat .category h1 {
+    margin: 10px 0;
+  }
+  .parent {
+    flex-direction: column;
+  }
+  .parent aside{
+    width: 100%;
+  }
+  .state2 {
+    display: none;
+  }
+  footer {
+    height: fit-content;
+    padding: 20px 0;
+  }
+  footer .footer {
+    flex-direction: column;
+    width: 70%;
+    font-size: 1.2em;
+  }
+  footer .footer span{
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+  }
+  footer .footer .nonresponsive {
+    display: none;
+  }
+  footer .footer .responsiveFooter {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+  }
+  footer .footer .responsiveFooter ul {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 750px) {
+  nav .container .search {
+    display: none;
+  }
+  nav .container2 .search {
+    display: block;
+  }
+  nav .container .addPost {
+    display: none;
+  }
+  nav .container span {
+    font-size: 1.5em;
+    padding: 10px 0;
+  }
+  .state1 {display: none;}
+  .state2 {display: block;}
+  .container2 {
+    display: flex;
+  }
+
+  .state .statesContainer {
+    width: 100%;
+  }
+}
+
+/* Responsive design end */
